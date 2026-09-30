@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unit Converter</title>
+</head>
+
+<body>
+
+<h1>Unit Converter</h1>
+
+<nav>
+    <a href="/?app_type=length">Length</a>
+    <a href="/?app_type=weight">Weight</a>
+    <a href="/?app_type=temperature">Temperature</a>
+</nav>
+
+
+{% if app == "length" %}
+
+<h2>Length</h2>
+
+<form action="/length" method="post">
+
+    <input type="number" name="value" step="any" required>
+
+    <select name="unit_from">
+        {% for unit in units %}
+            <option value="{{ unit }}">{{ unit }}</option>
+        {% endfor %}
+    </select>
+
+    <select name="unit_to">
+        {% for unit in units %}
+            <option value="{{ unit }}">{{ unit }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Convert</button>
+
+</form>
+
+
+{% elif app == "weight" %}
+
+<h2>Weight</h2>
+
+<form action="/weight" method="post">
+
+    <input type="number" name="value" step="any" required>
+
+    <select name="unit_from">
+        {% for unit in units %}
+            <option value="{{ unit }}">{{ unit }}</option>
+        {% endfor %}
+    </select>
+
+    <select name="unit_to">
+        {% for unit in units %}
+            <option value="{{ unit }}">{{ unit }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Convert</button>
+
+</form>
+
+
+{% elif app == "temperature" %}
+
+<h2>Temperature</h2>
+
+<form action="/temperature" method="post">
+
+    <input type="number" name="value" step="any" required>
+
+    <select name="unit_from">
+        {% for unit in units %}
+            <option value="{{ unit }}">{{ unit }}</option>
+        {% endfor %}
+    </select>
+
+    <select name="unit_to">
+        {% for unit in units %}
+            <option value="{{ unit }}">{{ unit }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Convert</button>
+
+</form>
+
+{% endif %}
+
+</body>
+</html>
